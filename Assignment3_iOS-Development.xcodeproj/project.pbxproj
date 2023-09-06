@@ -73,13 +73,13 @@
 		7C1F638D2AA885A100A96D7D /* Assignment3_iOS-Development */ = {
 			isa = PBXGroup;
 			children = (
+				7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */,
+				7C1F63B42AA88A0600A96D7D /* Models */,
+				7C1F63B52AA88A1500A96D7D /* Managers */,
 				7C1F63B72AA88A7C00A96D7D /* ViewControllers */,
 				7C1F63B62AA88A7400A96D7D /* ViewModels */,
-				7C1F63B52AA88A1500A96D7D /* Managers */,
-				7C1F63B42AA88A0600A96D7D /* Models */,
-				7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */,
-				7C1F63922AA885A200A96D7D /* Assets.xcassets */,
 				7C1F63942AA885A200A96D7D /* Preview Content */,
+				7C1F63922AA885A200A96D7D /* Assets.xcassets */,
 			);
 			path = "Assignment3_iOS-Development";
 			sourceTree = "<group>";
