@@ -22,6 +22,7 @@
 		7C1F63AF2AA888E000A96D7D /* MusicSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F63AE2AA888E000A96D7D /* MusicSearchViewController.swift */; };
 		7C1F63B12AA888EF00A96D7D /* MusicFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F63B02AA888EF00A96D7D /* MusicFilterViewController.swift */; };
 		7C1F63B32AA888FB00A96D7D /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F63B22AA888FB00A96D7D /* MusicListViewController.swift */; };
+		7C1F63B92AA8962A00A96D7D /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F63B82AA8962A00A96D7D /* MusicTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		7C1F63AE2AA888E000A96D7D /* MusicSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchViewController.swift; sourceTree = "<group>"; };
 		7C1F63B02AA888EF00A96D7D /* MusicFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicFilterViewController.swift; sourceTree = "<group>"; };
 		7C1F63B22AA888FB00A96D7D /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
+		7C1F63B82AA8962A00A96D7D /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +78,8 @@
 				7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */,
 				7C1F63B42AA88A0600A96D7D /* Models */,
 				7C1F63B52AA88A1500A96D7D /* Managers */,
-				7C1F63B72AA88A7C00A96D7D /* ViewControllers */,
 				7C1F63B62AA88A7400A96D7D /* ViewModels */,
+				7C1F63B72AA88A7C00A96D7D /* ViewControllers */,
 				7C1F63942AA885A200A96D7D /* Preview Content */,
 				7C1F63922AA885A200A96D7D /* Assets.xcassets */,
 			);
@@ -128,6 +130,7 @@
 				7C1F63AE2AA888E000A96D7D /* MusicSearchViewController.swift */,
 				7C1F63B02AA888EF00A96D7D /* MusicFilterViewController.swift */,
 				7C1F63B22AA888FB00A96D7D /* MusicListViewController.swift */,
+				7C1F63B82AA8962A00A96D7D /* MusicTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				7C1F63B12AA888EF00A96D7D /* MusicFilterViewController.swift in Sources */,
 				7C1F63B32AA888FB00A96D7D /* MusicListViewController.swift in Sources */,
 				7C1F639D2AA8880300A96D7D /* User.swift in Sources */,
+				7C1F63B92AA8962A00A96D7D /* MusicTableViewCell.swift in Sources */,
 				7C1F638F2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift in Sources */,
 				7C1F63A12AA8884F00A96D7D /* Music.swift in Sources */,
 			);

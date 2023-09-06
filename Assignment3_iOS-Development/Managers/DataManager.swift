@@ -9,42 +9,91 @@ import Foundation
 
 class DataManager {
     static let shared = DataManager()
-    private init() {}
     
     private var users: [User] = []
     private var music: [Music] = []
+    private var genres: [String] = []
     
-    func saveUser(_ user: User) {
-        // Implementation for saving user data
-        users.append(user)
+    private init() {
+        users = loadUsers()
+        music = loadMusic()
+        genres = loadGenres()
     }
     
-    func updateUser(_ user: User) {
-        // Implementation for updating user data
-        if let index = users.firstIndex(where: { $0.id == user.id }) {
-            users[index] = user
+    func registerUser(username: String, email: String, password: String) -> User? {
+        if users.contains(where: { $0.username == username }) {
+            return nil
+        }
+        
+        if users.contains(where: { $0.email == email }) {
+            return nil
+        }
+        
+        let user = User(id: UUID().uuidString, username: username, email: email, password: password)
+        
+        users.append(user)
+        
+        saveUsers()
+        
+        return user
+    }
+    
+    func loginUser(username: String, password: String) -> User? {
+        if let user = users.first(where: { $0.username == username }) {
+            if user.password == password {
+                return user
+            } else {
+                return nil
+            }
+        } else {
+            return nil
         }
     }
     
-    func getUser(username: String, password: String) -> User? {
-        // Implementation for retrieving user data
-        return users.first(where: { $0.username == username && $0.password == password })
+    func updateUserProfile(user: User) {
+        if let index = users.firstIndex(where: { $0.username == user.username }) {
+            users[index] = user
+            
+            saveUsers()
+        }
     }
     
-    func saveMusic(_ music: Music) {
-        // Implementation for saving music data
-        self.music.append(music)
+    private func saveUsers() {
+        // Save the users array to storage or database
+    }
+    
+    internal func loadUsers() -> [User] {
+        // Load the users array from storage or database
+        return []
     }
     
     func searchMusic(query: String) -> [Music] {
-        // Implementation for searching music data
-        return music.filter { $0.title.localizedCaseInsensitiveContains(query) || $0.artist.localizedCaseInsensitiveContains(query) }
+        return music.filter { $0.title.lowercased().contains(query.lowercased()) }
     }
     
     func filterMusic(genre: String) -> [Music] {
-        // Implementation for filtering music data
         return music.filter { $0.genre == genre }
     }
     
-    // Add any additional methods as needed
+    func updateMusic(_ musicItem: Music) {
+        if let index = music.firstIndex(where: { $0.id == musicItem.id }) {
+            music[index] = musicItem
+            
+            saveMusic()
+        }
+    }
+    
+    internal func saveMusic() {
+        // Save the music array to storage or database
+    }
+    
+    internal func loadMusic() -> [Music] {
+        // Load the music array from storage or database
+        return []
+    }
+    
+    internal func loadGenres() -> [String] {
+        // Load the genres array from storage or database
+        return []
+    }
 }

@@ -9,5 +9,22 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
-    // Implement login view controller logic
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        let username = usernameTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        
+        if username.isEmpty || password.isEmpty {
+            // Handle empty fields error
+            return
+        }
+        
+        if let user = DataManager.shared.loginUser(username: username, password: password) {
+            // Handle successful login
+        } else {
+            // Handle invalid credentials
+        }
+    }
 }

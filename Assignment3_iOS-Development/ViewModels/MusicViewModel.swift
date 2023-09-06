@@ -6,13 +6,44 @@
 //
 
 import Foundation
-class MusicViewModel {
-    private var musicList: [Music] = []
+
+class MusicCellViewModel {
+    private var music: Music
     
-    func fetchMusic() {
-        // Fetch music from MusicDiscoveryManager or DataManager
-        // Update musicList
+    var title: String {
+        return music.title
     }
     
-    // Implement other ViewModel methods and properties
+    var artist: String {
+        return music.artist
+    }
+    
+    var genre: String {
+        return music.genre
+    }
+    
+    var album: String {
+        return music.album
+    }
+    
+    var releaseDate: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: music.releaseDate)
+    }
+    
+    var isFavorite: Bool {
+        get {
+            return music.isFavorite
+        }
+        set {
+            music.isFavorite = newValue
+            // Save updated music to DataManager or database
+            DataManager.shared.updateMusic(music)
+        }
+    }
+    
+    init(music: Music) {
+        self.music = music
+    }
 }
