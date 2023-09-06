@@ -10,21 +10,29 @@ import UIKit
 
 class UserManager {
     static let shared = UserManager()
-    private var currentUser: User?
+    private init() {}
     
-    func register(username: String, password: String) {
-        // Implement user registration logic
+    func registerUser(username: String, email: String, password: String) -> User {
+        // Implementation for user registration
+        let id = UUID().uuidString
+        let user = User(id: id, username: username, email: email, password: password)
+        // Save user to DataManager or database
+        DataManager.shared.saveUser(user)
+        return user
     }
     
-    func login(username: String, password: String) {
-        // Implement user login logic
+    func loginUser(username: String, password: String) -> User? {
+        // Implementation for user login
+        // Retrieve user from DataManager or database based on username and password
+        let user = DataManager.shared.getUser(username: username, password: password)
+        return user
     }
     
-    func logout() {
-        // Implement user logout logic
+    func updateUserProfile(user: User) {
+        // Implementation for updating user profile
+        // Update user in DataManager or database
+        DataManager.shared.updateUser(user)
     }
     
-    func updateProfile(username: String, avatar: UIImage, bio: String) {
-        // Implement profile update logic
-    }
+    // Add any additional methods as needed
 }
