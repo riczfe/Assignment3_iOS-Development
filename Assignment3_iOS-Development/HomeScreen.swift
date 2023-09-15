@@ -113,6 +113,7 @@ struct HomeScreen: View {
                 }
                 .padding(.horizontal)
                 .padding()
+                
                 // Image slideshow
                 TabView {
                     Image("promo1")
