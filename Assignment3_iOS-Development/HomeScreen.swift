@@ -3,10 +3,22 @@ import CoreLocation
 
 class LocationDelegate: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var currentLocation: CLLocationCoordinate2D?
+    @Published var currentLocationName: String = "" // Initialize as empty string
     
+    private let geocoder = CLGeocoder()
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         currentLocation = location.coordinate
+        
+        // Perform reverse geocoding to get the location name
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            if let placemark = placemarks?.first {
+                self?.currentLocationName = placemark.name ?? placemark.locality ?? "Unknown Location"
+            } else {
+                self?.currentLocationName = "Unknown Location"
+            }
+        }
     }
 }
 
@@ -20,30 +32,31 @@ struct HomeScreen: View {
     @StateObject private var locationDelegate = LocationDelegate()
     @State private var locationManager = CLLocationManager()
     @State private var searchText = ""
+    @AppStorage("darkModeEnabled") private var darkModeEnabled = false
     
     var body: some View {
         NavigationView {
             VStack {
-                // Top navigation bar
                 HStack {
-                    // User's current location
-                    if let location = locationDelegate.currentLocation {
-                        Text("Current Location: \(location.latitude), \(location.longitude)")
-                            .font(.headline)
-                    } else {
-                        Text("Unknown Location")
-                            .font(.headline)
-                    }
+                    // Display location name if available, otherwise show "Unknown Location"
+                    Text(locationDelegate.currentLocationName.isEmpty ? "Unknown Location" : locationDelegate.currentLocationName)
+                        .font(.headline)
                     
                     Spacer()
+                    
+                    // Dark Mode icon
+                    Image(systemName: darkModeEnabled ? "moon.fill" : "sun.max.fill")
+                        .font(.title)
+                        .onTapGesture {
+                            darkModeEnabled.toggle()
+                        }
+                        .foregroundColor(darkModeEnabled ? .yellow : .blue) // Customize icon color
                     
                     // Profile icon
                     NavigationLink(destination: Profile()) {
                         Image(systemName: "person.circle")
                             .font(.title)
                     }
-                    .padding()
-                    
                     // Cart icon
                     NavigationLink(destination: Cart()) {
                         Image(systemName: "cart")
@@ -51,23 +64,8 @@ struct HomeScreen: View {
                     }
                 }
                 .padding()
+                .foregroundColor(Color.primary)
                 
-                // Search bar
-                HStack {
-                    TextField("Search", text: $searchText)
-                        .padding(.horizontal)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Button(action: {
-                        // Perform search action
-                    }) {
-                        Image(systemName: "magnifyingglass")
-                            .font(.system(size: 20))
-                    }
-                    .padding(.trailing)
-                }
-                .padding()
-                
-                // Icons
                 HStack {
                     Image("offer")
                         .resizable()
@@ -88,11 +86,9 @@ struct HomeScreen: View {
                 }
                 .padding(.horizontal)
                 
-                // Separator line
                 Divider()
                     .padding(.horizontal)
                 
-                // Trending icons
                 HStack {
                     Image("trending")
                         .resizable()
@@ -114,7 +110,6 @@ struct HomeScreen: View {
                 .padding(.horizontal)
                 .padding()
                 
-                // Image slideshow
                 TabView {
                     Image("promo1")
                         .resizable()
@@ -155,6 +150,7 @@ struct HomeScreen: View {
             }
         )
         .environmentObject(locationDelegate)
+        .preferredColorScheme(darkModeEnabled ? .dark : .light)
     }
     
     private func checkLocationAuthorization() {

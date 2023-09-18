@@ -6,76 +6,77 @@
 
 import SwiftUI
 
-struct Profile: View{
-    
+struct Profile: View {
     @State var isLoginMode = false
     @State var email = ""
     @State var password = ""
-    
-    
-    var body: some View{
-        NavigationView{
-            ScrollView{
-                VStack(spacing: 20){
-                    Picker(selection: $isLoginMode, label: Text("Picker here")){
+
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 10) {
+                    Picker(selection: $isLoginMode, label: Text("Picker here")) {
                         Text("Login").tag(true)
                         Text("Create Account").tag(false)
-                    }.pickerStyle(SegmentedPickerStyle())
-                        .padding()
-                    
-                    if !isLoginMode{
-                        Button{
-                            
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding()
+
+                    if !isLoginMode {
+                        Button {
+                            // Handle button tap in Create Account mode
                         } label: {
                             Image(systemName: "person.fill")
-                                .font(.system(size:65))
+                                .font(.system(size: 65))
                                 .padding()
                         }
                     }
-                    
-                    Group{
+
+                    Group {
                         TextField("Email", text: $email)
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
-                        
+                            .foregroundColor(.primary) // Set text color
+
                         SecureField("Password", text: $password)
-                        
-                    }.padding(12)
-                        .background(Color.white)
-                    
-                    Button{
+                            .foregroundColor(.primary) // Set text color
+                    }
+                    .padding(12)
+                    .background(Color.white)
+
+                    Button {
                         handleAction()
                     } label: {
-                        HStack{
+                        HStack {
                             Spacer()
-                            Text(isLoginMode ? "Login" : "Create Acount")
+                            Text(isLoginMode ? "Login" : "Create Account")
                                 .foregroundColor(.white)
                                 .padding(.vertical, 10)
                                 .font(.system(size: 14, weight: .semibold))
                             Spacer()
-                        }.background(Color.blue)
-                        
+                        }
+                        .background(Color.blue)
                     }
-                }.padding()
-                
+                }
+                .padding()
             }
             .navigationTitle(isLoginMode ? "Login" : "Create Account")
-            .background(Color(.init(white: 0, alpha: 0.05))
-                .ignoresSafeArea())
+            .background(Color(.init(white: 0, alpha: 0.05)))
+            .ignoresSafeArea(.keyboard)
         }
     }
-    
-    private func handleAction(){
-        if isLoginMode{
+
+    private func handleAction() {
+        if isLoginMode {
             print("Log into Firebase")
-        } else{
+        } else {
             print("Register New Account")
         }
     }
 }
 
-struct Profile_Previews: PreviewProvider{
-    static var previews: some View{
+struct Profile_Previews: PreviewProvider {
+    static var previews: some View {
         Profile()
     }
 }
