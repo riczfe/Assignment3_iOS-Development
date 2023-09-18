@@ -13,6 +13,7 @@
 		7CFD0F1D2AB3F4370018CCD2 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD0F1C2AB3F4370018CCD2 /* HomeScreen.swift */; };
 		7CFD0F1F2AB3F4500018CCD2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD0F1E2AB3F4500018CCD2 /* Profile.swift */; };
 		7CFD0F212AB3F45D0018CCD2 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD0F202AB3F45D0018CCD2 /* Cart.swift */; };
+		803DB6872AB7F60C00EE4F22 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DB6862AB7F60C00EE4F22 /* LogIn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		7CFD0F1C2AB3F4370018CCD2 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		7CFD0F1E2AB3F4500018CCD2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		7CFD0F202AB3F45D0018CCD2 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		803DB6862AB7F60C00EE4F22 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7CFD0F1C2AB3F4370018CCD2 /* HomeScreen.swift */,
 				7CFD0F1E2AB3F4500018CCD2 /* Profile.swift */,
 				7CFD0F202AB3F45D0018CCD2 /* Cart.swift */,
+				803DB6862AB7F60C00EE4F22 /* LogIn.swift */,
 				7C1F63942AA885A200A96D7D /* Preview Content */,
 				7C1F63922AA885A200A96D7D /* Assets.xcassets */,
 			);
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				803DB6872AB7F60C00EE4F22 /* LogIn.swift in Sources */,
 				7CFD0F1D2AB3F4370018CCD2 /* HomeScreen.swift in Sources */,
 				7CFD0F1F2AB3F4500018CCD2 /* Profile.swift in Sources */,
 				7C1F638F2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift in Sources */,

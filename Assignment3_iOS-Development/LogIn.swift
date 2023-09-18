@@ -1,4 +1,5 @@
 //
+//  LogIn.swift
 //  Assignment3_iOS-Development
 //
 //  Created by Minh Trinh Quang on 15/09/2023.
@@ -6,7 +7,7 @@
 
 import SwiftUI
 
-struct Profile: View{
+struct LogIn: View{
     
     @State var isLoginMode = false
     @State var email = ""
@@ -74,8 +75,8 @@ struct Profile: View{
     }
 }
 
-struct Profile_Previews: PreviewProvider{
+struct LogIn_Previews: PreviewProvider{
     static var previews: some View{
-        Profile()
+        LogIn()
     }
 }
