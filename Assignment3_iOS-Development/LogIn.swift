@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LogIn: View {
+    @Environment(\.dismiss) var dismiss
+    
     @State var isLoginMode = false
     @State var email = ""
     @State var password = ""
+    
+    @State var signUpSuccess = false
+    
 
     var body: some View {
         NavigationView {
@@ -46,8 +52,9 @@ struct LogIn: View {
                     .background(Color.white)
 
                     Button {
-                        handleAction()
-                    } label: {
+                        signUp()
+                    }
+                    label: {
                         HStack {
                             Spacer()
                             Text(isLoginMode ? "Login" : "Create Account")
@@ -58,6 +65,22 @@ struct LogIn: View {
                         }
                         .background(Color.blue)
                     }
+                    if signUpSuccess {
+                        Text("Sign Up Successful")
+                            .foregroundColor(.pink)
+                    } else {
+                        Text("Unsuccessful @@")
+                            .foregroundColor(.red)
+                    }
+                    
+                    Spacer()
+                    
+                    
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Return")
+                    }
                 }
                 .padding()
             }
@@ -67,11 +90,36 @@ struct LogIn: View {
         }
     }
 
-    private func handleAction() {
+    /*private func handleAction() {
         if isLoginMode {
             print("Log into Firebase")
         } else {
             print("Register New Account")
+        }
+    }*/
+    
+    private func login() {
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                isLoginMode = false
+            } else {
+                print("Login Successful!!")
+                isLoginMode = true
+            }
+        }
+    }
+    
+    
+    func signUp() {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                signUpSuccess = false
+            } else {
+                print("Successful!! Log in by your new account")
+                signUpSuccess = true
+            }
         }
     }
 }
