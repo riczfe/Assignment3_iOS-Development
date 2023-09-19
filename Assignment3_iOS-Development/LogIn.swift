@@ -22,6 +22,8 @@ struct LogIn: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
+                    
+
                     Picker(selection: $isLoginMode, label: Text("Picker here")) {
                         Text("Login").tag(true)
                         Text("Create Account").tag(false)
@@ -52,7 +54,7 @@ struct LogIn: View {
                     .background(Color.white)
 
                     Button {
-                        signUp()
+                        signUp(); login()
                     }
                     label: {
                         HStack {
@@ -65,6 +67,7 @@ struct LogIn: View {
                         }
                         .background(Color.blue)
                     }
+                    
                     if signUpSuccess {
                         Text("Sign Up Successful")
                             .foregroundColor(.pink)
@@ -111,7 +114,7 @@ struct LogIn: View {
     }
     
     
-    func signUp() {
+    private func signUp() {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if error != nil {
                 print(error?.localizedDescription ?? "")
