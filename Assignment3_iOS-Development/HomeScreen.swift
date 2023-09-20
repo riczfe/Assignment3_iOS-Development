@@ -53,7 +53,7 @@ struct HomeScreen: View {
                         .foregroundColor(darkModeEnabled ? .yellow : .blue) // Customize icon color
                     
                     // Profile icon
-                    NavigationLink(destination: Profile()) {
+                    NavigationLink(destination: LogIn()) {
                         Image(systemName: "person.circle")
                             .font(.title)
                     }
@@ -67,49 +67,119 @@ struct HomeScreen: View {
                 .foregroundColor(Color.primary)
                 
                 HStack {
-                    Image("offer")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .padding(.horizontal)
-                    Image("grocery")
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                        .padding(.horizontal)
-                    Image("convenience")
-                        .resizable()
-                        .frame(width: 65, height: 65)
-                        .padding(.horizontal)
-                    Image("alcohol")
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                        .padding(.horizontal)
+                    VStack {
+                        Image("offer")
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.horizontal)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                        
+                        Text("Offer")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    VStack {
+                        Image("grocery")
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.horizontal)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                        
+                        Text("Grocery")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    VStack {
+                        Image("convenience")
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.horizontal)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                        
+                        Text("Convenience")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    VStack {
+                        Image("alcohol")
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.horizontal)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                        
+                        Text("Alcohol")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
                 }
                 .padding(.horizontal)
-                
+
                 Divider()
                     .padding(.horizontal)
-                
+
                 HStack {
-                    Image("trending")
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                        .padding(.horizontal)
-                    Image("burgers")
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                        .padding(.horizontal)
-                    Image("fastfood")
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                        .padding(.horizontal)
-                    Image("coffee")
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                        .padding(.horizontal)
+                    VStack {
+                        Image("trending")
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.horizontal)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                        
+                        Text("Trending")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    VStack {
+                        Image("burgers")
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.horizontal)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                        
+                        Text("Burgers")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    VStack {
+                        Image("fastfood")
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.horizontal)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                        
+                        Text("Fast Food")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    VStack {
+                        Image("coffee")
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.horizontal)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                        
+                        Text("Coffee")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
                 }
                 .padding(.horizontal)
                 .padding()
-                
+
                 TabView {
                     Image("promo1")
                         .resizable()
