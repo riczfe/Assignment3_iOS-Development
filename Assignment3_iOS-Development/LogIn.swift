@@ -31,15 +31,6 @@ struct LogIn: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()
 
-                    if !isLoginMode {
-                        Button {
-                            // Handle button tap in Create Account mode
-                        } label: {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 65))
-                                .padding()
-                        }
-                    }
 
                     Group {
                         TextField("Email", text: $email)
@@ -52,10 +43,10 @@ struct LogIn: View {
                     }
                     .padding(12)
                     .background(Color.white)
-
-                    Button {
-                        signUp(); login()
-                    }
+                    NavigationLink(destination: HomeScreen()){
+                        Button {
+                            signUp(); login()
+                        }
                     label: {
                         HStack {
                             Spacer()
@@ -64,17 +55,26 @@ struct LogIn: View {
                                 .padding(.vertical, 10)
                                 .font(.system(size: 14, weight: .semibold))
                             Spacer()
+                            
                         }
                         .background(Color.blue)
                     }
+                    }
                     
-                    if signUpSuccess {
+                    
+                    
+                    
+                    if signUpSuccess == true{
                         Text("Sign Up Successful")
                             .foregroundColor(.pink)
-                    } else {
+                        NavigationLink(destination: Text("Home Screen")) {
+                            HomeScreen()
+                        }
+                    }else if signUpSuccess == false {
                         Text("Unsuccessful @@")
                             .foregroundColor(.red)
                     }
+                    
                     
                     Spacer()
                     
@@ -86,7 +86,9 @@ struct LogIn: View {
                     }
                 }
                 .padding()
+                
             }
+            
             .navigationTitle(isLoginMode ? "Login" : "Create Account")
             .background(Color(.init(white: 0, alpha: 0.05)))
             .ignoresSafeArea(.keyboard)
@@ -107,11 +109,13 @@ struct LogIn: View {
                 print(error?.localizedDescription ?? "")
                 isLoginMode = false
             } else {
-                print("Login Successful!!")
+                print("Login Successful!")
                 isLoginMode = true
             }
         }
     }
+    
+    
     
     
     private func signUp() {
@@ -123,7 +127,7 @@ struct LogIn: View {
                 print("Successful!! Log in by your new account")
                 signUpSuccess = true
             }
-        }
+        } 
     }
 }
 
