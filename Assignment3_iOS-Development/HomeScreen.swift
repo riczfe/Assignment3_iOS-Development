@@ -3,15 +3,13 @@ import CoreLocation
 
 class LocationDelegate: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var currentLocation: CLLocationCoordinate2D?
-    @Published var currentLocationName: String = "" // Initialize as empty string
-    
+    @Published var currentLocationName: String = ""
     private let geocoder = CLGeocoder()
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         currentLocation = location.coordinate
         
-        // Perform reverse geocoding to get the location name
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
             if let placemark = placemarks?.first {
                 self?.currentLocationName = placemark.name ?? placemark.locality ?? "Unknown Location"
@@ -38,26 +36,23 @@ struct HomeScreen: View {
         NavigationView {
             VStack {
                 HStack {
-                    // Display location name if available, otherwise show "Unknown Location"
                     Text(locationDelegate.currentLocationName.isEmpty ? "Unknown Location" : locationDelegate.currentLocationName)
                         .font(.headline)
                     
                     Spacer()
                     
-                    // Dark Mode icon
                     Image(systemName: darkModeEnabled ? "moon.fill" : "sun.max.fill")
                         .font(.title)
                         .onTapGesture {
                             darkModeEnabled.toggle()
                         }
-                        .foregroundColor(darkModeEnabled ? .yellow : .blue) // Customize icon color
+                        .foregroundColor(darkModeEnabled ? .yellow : .blue)
                     
-                    // Profile icon
                     NavigationLink(destination: LogIn()) {
                         Image(systemName: "person.circle")
                             .font(.title)
                     }
-                    // Cart icon
+                    
                     NavigationLink(destination: Cart()) {
                         Image(systemName: "cart")
                             .font(.title)
@@ -202,6 +197,50 @@ struct HomeScreen: View {
                 .frame(height: 240)
                 .padding(.horizontal)
                 
+                TabView {
+                    Button(action: {}) {
+                        VStack {
+                            Image("restaurant1")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(10)
+                                .padding(.horizontal)
+                            
+                            Text("Restaurant 1")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        .frame(width: 120, height: 120)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .tabItem {
+                        Label("Restaurant 1", systemImage: "square.fill")
+                    }
+                    
+                    Button(action: {}) {
+                        VStack {
+                            Image("restaurant2")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(10)
+                                .padding(.horizontal)
+                            
+                            Text("Restaurant 2")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        .frame(width: 120, height: 120)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .tabItem {
+                        Label("Restaurant 2", systemImage: "square.fill")
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle())
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                .frame(height: 240)
+                .padding(.horizontal)
+
                 Spacer()
             }
         }
