@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E5DCB192ABB24AA00E80E90 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5DCB182ABB24AA00E80E90 /* RowView.swift */; };
+		0E5DCB1F2ABB2A2500E80E90 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5DCB1E2ABB2A2500E80E90 /* User.swift */; };
+		0E5DCB212ABB340300E80E90 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5DCB202ABB340300E80E90 /* AuthViewModel.swift */; };
+		0E5DCB232ABB3A7A00E80E90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5DCB222ABB3A7A00E80E90 /* ContentView.swift */; };
 		0EF43D152AB952A800968586 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EF43D142AB952A800968586 /* GoogleService-Info.plist */; };
 		0EF43D182AB953C800968586 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF43D172AB953C800968586 /* FirebaseAuth */; };
 		0EF43D1A2AB953C800968586 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF43D192AB953C800968586 /* FirebaseDatabase */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E5DCB182ABB24AA00E80E90 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		0E5DCB1E2ABB2A2500E80E90 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0E5DCB202ABB340300E80E90 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		0E5DCB222ABB3A7A00E80E90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0EF43D142AB952A800968586 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C1F638B2AA885A100A96D7D /* Assignment3_iOS-Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment3_iOS-Development.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3_iOS_DevelopmentApp.swift; sourceTree = "<group>"; };
@@ -56,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E5DCB1D2ABB2A1100E80E90 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E5DCB1E2ABB2A2500E80E90 /* User.swift */,
+				0E5DCB202ABB340300E80E90 /* AuthViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7C1F63822AA885A100A96D7D = {
 			isa = PBXGroup;
 			children = (
@@ -75,11 +92,14 @@
 		7C1F638D2AA885A100A96D7D /* Assignment3_iOS-Development */ = {
 			isa = PBXGroup;
 			children = (
+				0E5DCB1D2ABB2A1100E80E90 /* Model */,
 				7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */,
 				7CFD0F1C2AB3F4370018CCD2 /* HomeScreen.swift */,
 				7CFD0F1E2AB3F4500018CCD2 /* Profile.swift */,
 				7CFD0F202AB3F45D0018CCD2 /* Cart.swift */,
 				803DB6862AB7F60C00EE4F22 /* LogIn.swift */,
+				0E5DCB182ABB24AA00E80E90 /* RowView.swift */,
+				0E5DCB222ABB3A7A00E80E90 /* ContentView.swift */,
 				0EF43D142AB952A800968586 /* GoogleService-Info.plist */,
 				7C1F63942AA885A200A96D7D /* Preview Content */,
 				7C1F63922AA885A200A96D7D /* Assets.xcassets */,
@@ -180,10 +200,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				803DB6872AB7F60C00EE4F22 /* LogIn.swift in Sources */,
+				0E5DCB192ABB24AA00E80E90 /* RowView.swift in Sources */,
 				7CFD0F1D2AB3F4370018CCD2 /* HomeScreen.swift in Sources */,
 				7CFD0F1F2AB3F4500018CCD2 /* Profile.swift in Sources */,
+				0E5DCB212ABB340300E80E90 /* AuthViewModel.swift in Sources */,
+				0E5DCB232ABB3A7A00E80E90 /* ContentView.swift in Sources */,
 				7C1F638F2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift in Sources */,
 				7CFD0F212AB3F45D0018CCD2 /* Cart.swift in Sources */,
+				0E5DCB1F2ABB2A2500E80E90 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
