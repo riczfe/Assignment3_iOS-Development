@@ -11,87 +11,96 @@ import Firebase
 struct LogIn: View {
     @Environment(\.dismiss) var dismiss
     
+    @StateObject var viewModel = AuthViewModel()
     @State var isLoginMode = false
     @State var email = ""
     @State var password = ""
     
     @State var signUpSuccess = false
+    @State private var navigationTo = false
     
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    
-
-                    Picker(selection: $isLoginMode, label: Text("Picker here")) {
-                        Text("Login").tag(true)
-                        Text("Create Account").tag(false)
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding()
-
-
-                    Group {
-                        TextField("Email", text: $email)
-                            .keyboardType(.emailAddress)
-                            .autocapitalization(.none)
-                            .foregroundColor(.primary) // Set text color
-
-                        SecureField("Password", text: $password)
-                            .foregroundColor(.primary) // Set text color
-                    }
-                    .padding(12)
-                    .background(Color.white)
-                    NavigationLink(destination: HomeScreen()){
-                        Button {
-                            signUp(); login()
+            NavigationStack{
+                ScrollView {
+                    VStack(spacing: 20) {
+                        
+                        
+                        Picker(selection: $isLoginMode, label: Text("Picker here")) {
+                            Text("Login").tag(true)
+                            Text("Create Account").tag(false)
                         }
-                    label: {
-                        HStack {
-                            Spacer()
-                            Text(isLoginMode ? "Login" : "Create Account")
-                                .foregroundColor(.white)
-                                .padding(.vertical, 10)
-                                .font(.system(size: 14, weight: .semibold))
-                            Spacer()
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding()
+                        
+                        
+                        Group {
+                            TextField("Email", text: $email)
+                                .keyboardType(.emailAddress)
+                                .autocapitalization(.none)
+                                .foregroundColor(.primary) // Set text color
                             
+                            SecureField("Password", text: $password)
+                                .foregroundColor(.primary) // Set text color
                         }
-                        .background(Color.blue)
-                    }
-                    }
-                    
-                    
-                    
-                    
-                    if signUpSuccess == true{
-                        Text("Sign Up Successful")
-                            .foregroundColor(.pink)
-                        NavigationLink(destination: Text("Home Screen")) {
-                            HomeScreen()
+                        .padding(12)
+                        .background(Color.white)
+                        
+                        
+                        
+                       
+                            Button {
+                                Task{
+                                    try await viewModel.signIn(withEmail: email, password: password)
+                                }
+                            }
+                        label: {
+                            HStack {
+                                Spacer()
+                                Text(isLoginMode ? "Login" : "Create Account")
+                                    .foregroundColor(.white)
+                                    .padding(.vertical, 10)
+                                    .font(.system(size: 14, weight: .semibold))
+                                Spacer()
+                                
+                            }
+                            .background(Color.blue)
                         }
-                    }else if signUpSuccess == false {
-                        Text("Unsuccessful @@")
-                            .foregroundColor(.red)
+                        
+                        
+                        Spacer()
+                        
+                        
+                                
+                        
+                        if signUpSuccess {
+                            Text("Sign Up Successful")
+                                .foregroundColor(.pink)
+                        } else {
+                            Text("Not Successful!!")
+                        }
+        
+                    
+                        
+                        
+                        Spacer()
+                        
+                        
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Return")
+                        }
                     }
+                    .padding()
                     
-                    
-                    Spacer()
-                    
-                    
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Return")
-                    }
                 }
-                .padding()
                 
+                .navigationTitle(isLoginMode ? "Login" : "Create Account")
+                .background(Color(.init(white: 0, alpha: 0.05)))
+                .ignoresSafeArea(.keyboard)
             }
-            
-            .navigationTitle(isLoginMode ? "Login" : "Create Account")
-            .background(Color(.init(white: 0, alpha: 0.05)))
-            .ignoresSafeArea(.keyboard)
         }
     }
 
@@ -102,33 +111,7 @@ struct LogIn: View {
             print("Register New Account")
         }
     }*/
-    
-    private func login() {
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
-                isLoginMode = false
-            } else {
-                print("Login Successful!")
-                isLoginMode = true
-            }
-        }
-    }
-    
-    
-    
-    
-    private func signUp() {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
-                signUpSuccess = false
-            } else {
-                print("Successful!! Log in by your new account")
-                signUpSuccess = true
-            }
-        } 
-    }
+
 }
 
 struct LogIn_Previews: PreviewProvider {

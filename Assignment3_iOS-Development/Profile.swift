@@ -4,79 +4,62 @@
 //  Created by Minh Trinh Quang on 15/09/2023.
 //
 
-/*import SwiftUI
+import SwiftUI
 
 struct Profile: View {
-    @State var isLoginMode = false
-    @State var email = ""
-    @State var password = ""
-
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 10) {
-                    Picker(selection: $isLoginMode, label: Text("Picker here")) {
-                        Text("Login").tag(true)
-                        Text("Create Account").tag(false)
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding()
-
-                    if !isLoginMode {
-                        Button {
-                            // Handle button tap in Create Account mode
-                        } label: {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 65))
-                                .padding()
+        if let user = viewModel.currentUser {
+            List{
+                Section{
+                    HStack {
+                        Text(user.initials)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(width: 72, height: 72)
+                            .background(Color(.systemGray3))
+                        .clipShape(Circle())
+                        
+                        VStack(alignment: .leading, spacing: 40){
+                            Text(user.email)
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .padding(.top, 4)
+                            
                         }
                     }
-
-                    Group {
-                        TextField("Email", text: $email)
-                            .keyboardType(.emailAddress)
-                            .autocapitalization(.none)
-                            .foregroundColor(.primary) // Set text color
-
-                        SecureField("Password", text: $password)
-                            .foregroundColor(.primary) // Set text color
-                    }
-                    .padding(12)
-                    .background(Color.white)
-
-                    Button {
-                        handleAction()
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text(isLoginMode ? "Login" : "Create Account")
-                                .foregroundColor(.white)
-                                .padding(.vertical, 10)
-                                .font(.system(size: 14, weight: .semibold))
-                            Spacer()
-                        }
-                        .background(Color.blue)
+                    
+                }
+                
+                Section("App Version"){
+                    HStack{
+                        RowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray2))
+                        
+                        Spacer()
+                        Text("1.0.0")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
                     }
                 }
-                .padding()
-            }
-            .navigationTitle(isLoginMode ? "Login" : "Create Account")
-            .background(Color(.init(white: 0, alpha: 0.05)))
-            .ignoresSafeArea(.keyboard)
-        }
-    }
+                
+                Section("Account"){
+                    Button {
+                        viewModel.signOut()
+                    } label: {
+                        RowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: Color(.red))
+                    }
 
-    private func handleAction() {
-        if isLoginMode {
-            print("Log into Firebase")
-        } else {
-            print("Register New Account")
+                }
+            }
         }
     }
 }
 
+   
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
         Profile()
     }
-} */
+}
