@@ -53,7 +53,7 @@ struct HomeScreen: View {
                         .foregroundColor(darkModeEnabled ? .yellow : .blue) // Customize icon color
                     
                     // Profile icon
-                    NavigationLink(destination: Profile()) {
+                    NavigationLink(destination: LogIn()) {
                         Image(systemName: "person.circle")
                             .font(.title)
                     }

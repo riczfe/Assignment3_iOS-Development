@@ -4,7 +4,7 @@
 //  Created by Minh Trinh Quang on 15/09/2023.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct Profile: View {
     @State var isLoginMode = false
@@ -79,4 +79,4 @@ struct Profile_Previews: PreviewProvider {
     static var previews: some View {
         Profile()
     }
-}
+} */
