@@ -33,7 +33,6 @@ class LocationDelegate: NSObject, CLLocationManagerDelegate, ObservableObject {
             }
         }
     }
-
 }
 
 extension CLLocationCoordinate2D: Equatable {
@@ -49,6 +48,7 @@ struct HomeScreen: View {
     @AppStorage("darkModeEnabled") private var darkModeEnabled = false
     
     var body: some View {
+        
         NavigationView {
             VStack {
                 HStack {
@@ -68,14 +68,13 @@ struct HomeScreen: View {
                         Image(systemName: "person.circle")
                             .font(.title)
                     }
-                    
-                    NavigationLink(destination: Cart()) {
-                        Image(systemName: "cart")
-                            .font(.title)
-                    }
                 }
+                .padding(.top, 40)
                 .padding()
                 .foregroundColor(Color.primary)
+                
+                // Search bar added to the navigation bar
+                SearchBar(text: $searchText)
                 
                 HStack {
                     VStack {
@@ -268,11 +267,40 @@ struct HomeScreen: View {
     private func checkLocationAuthorization() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = locationDelegate
-            locationManager.requestWhenInUseAuthorization()
+
+            if CLLocationManager.authorizationStatus() == .notDetermined {
+                locationManager.requestWhenInUseAuthorization()
+            }
             locationManager.startUpdatingLocation()
         }
     }
 }
+
+
+//SEARCH BARR
+struct SearchBar: View {
+    @Binding var text: String
+
+    var body: some View {
+        HStack {
+            TextField("Search", text: $text)
+                .padding(8)
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
+                .padding(.horizontal)
+            Button(action: {
+                // Perform search action here
+            }) {
+                Image(systemName: "magnifyingglass")
+                    .imageScale(.medium)
+                    .foregroundColor(.gray)
+                    .padding(.trailing, 8)
+            }
+        }
+        .padding(.bottom, 20)
+    }
+}
+
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {

@@ -101,6 +101,7 @@
 				0E5DCB182ABB24AA00E80E90 /* RowView.swift */,
 				0E5DCB222ABB3A7A00E80E90 /* ContentView.swift */,
 				0EF43D142AB952A800968586 /* GoogleService-Info.plist */,
+				7C92A26D2ABC38C000B20865 /* Restaurant List */,
 				7C1F63942AA885A200A96D7D /* Preview Content */,
 				7C1F63922AA885A200A96D7D /* Assets.xcassets */,
 			);
@@ -113,6 +114,13 @@
 				7C1F63952AA885A200A96D7D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7C92A26D2ABC38C000B20865 /* Restaurant List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Restaurant List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
