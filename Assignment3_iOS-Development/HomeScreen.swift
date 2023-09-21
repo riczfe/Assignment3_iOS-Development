@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreLocation
+import Foundation
 
 class LocationDelegate: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var currentLocation: CLLocationCoordinate2D?
@@ -300,7 +301,6 @@ struct SearchBar: View {
         .padding(.bottom, 20)
     }
 }
-
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {

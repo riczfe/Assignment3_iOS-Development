@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Restaurant 1",
+        "description": "A cozy Italian restaurant with a wide range of pasta and pizza options.",
+        "ratings": 4.5
+    },
+    {
+        "name": "Restaurant 2",
+        "description": "An elegant steakhouse known for its premium cuts of beef and fine dining experience.",
+        "ratings": 4.8
+    }
+]

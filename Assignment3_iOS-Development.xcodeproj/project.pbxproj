@@ -23,6 +23,7 @@
 		7C1F638F2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */; };
 		7C1F63932AA885A200A96D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F63922AA885A200A96D7D /* Assets.xcassets */; };
 		7C1F63962AA885A200A96D7D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C1F63952AA885A200A96D7D /* Preview Assets.xcassets */; };
+		7C92A26F2ABC4E4F00B20865 /* restaurant.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C92A26E2ABC4E4F00B20865 /* restaurant.json */; };
 		7CFD0F1D2AB3F4370018CCD2 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD0F1C2AB3F4370018CCD2 /* HomeScreen.swift */; };
 		7CFD0F1F2AB3F4500018CCD2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD0F1E2AB3F4500018CCD2 /* Profile.swift */; };
 		7CFD0F212AB3F45D0018CCD2 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD0F202AB3F45D0018CCD2 /* Cart.swift */; };
@@ -39,6 +40,7 @@
 		7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3_iOS_DevelopmentApp.swift; sourceTree = "<group>"; };
 		7C1F63922AA885A200A96D7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C1F63952AA885A200A96D7D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7C92A26E2ABC4E4F00B20865 /* restaurant.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurant.json; sourceTree = "<group>"; };
 		7CFD0F1C2AB3F4370018CCD2 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		7CFD0F1E2AB3F4500018CCD2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		7CFD0F202AB3F45D0018CCD2 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		7C92A26D2ABC38C000B20865 /* Restaurant List */ = {
 			isa = PBXGroup;
 			children = (
+				7C92A26E2ABC4E4F00B20865 /* restaurant.json */,
 			);
 			path = "Restaurant List";
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C92A26F2ABC4E4F00B20865 /* restaurant.json in Resources */,
 				7C1F63962AA885A200A96D7D /* Preview Assets.xcassets in Resources */,
 				7C1F63932AA885A200A96D7D /* Assets.xcassets in Resources */,
 				0EF43D152AB952A800968586 /* GoogleService-Info.plist in Resources */,
