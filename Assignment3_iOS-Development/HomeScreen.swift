@@ -7,17 +7,33 @@ class LocationDelegate: NSObject, CLLocationManagerDelegate, ObservableObject {
     private let geocoder = CLGeocoder()
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        currentLocation = location.coordinate
+        print("Location updated")
+        guard let location = locations.last else {
+            print("No location data")
+            return
+        }
+        // Perform UI updates on the main thread
+        DispatchQueue.main.async { [weak self] in
+            self?.currentLocation = location.coordinate
+        }
         
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
-            if let placemark = placemarks?.first {
-                self?.currentLocationName = placemark.name ?? placemark.locality ?? "Unknown Location"
-            } else {
-                self?.currentLocationName = "Unknown Location"
+            if let error = error {
+                print("Reverse geocoding error: \(error.localizedDescription)")
+                return
+            }
+            
+            // Perform UI updates on the main thread
+            DispatchQueue.main.async { [weak self] in
+                if let placemark = placemarks?.first {
+                    self?.currentLocationName = placemark.name ?? placemark.locality ?? "Unknown Location"
+                } else {
+                    self?.currentLocationName = "Unknown Location"
+                }
             }
         }
     }
+
 }
 
 extension CLLocationCoordinate2D: Equatable {
@@ -115,10 +131,10 @@ struct HomeScreen: View {
                     }
                 }
                 .padding(.horizontal)
-
+                
                 Divider()
                     .padding(.horizontal)
-
+                
                 HStack {
                     VStack {
                         Image("trending")
@@ -174,7 +190,7 @@ struct HomeScreen: View {
                 }
                 .padding(.horizontal)
                 .padding()
-
+                
                 TabView {
                     Image("promo1")
                         .resizable()
@@ -197,53 +213,40 @@ struct HomeScreen: View {
                 .frame(height: 240)
                 .padding(.horizontal)
                 
-                TabView {
-                    Button(action: {}) {
-                        VStack {
-                            Image("restaurant1")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .cornerRadius(10)
-                                .padding(.horizontal)
-                            
-                            Text("Restaurant 1")
-                                .font(.caption)
-                                .foregroundColor(.gray)
+                Text("Check out our latest promotions!")
+                    .font(.headline)
+                
+                // Replace TabView with ScrollView and LazyHGrid
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHGrid(rows: [GridItem(.fixed(150))]) {
+                        ForEach(0..<2) { index in
+                            Button(action: {}) {
+                                VStack {
+                                    Image("restaurant\(index + 1)")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .cornerRadius(10)
+                                        .padding(.horizontal)
+                                    
+                                    Text("Restaurant \(index + 1)")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                }
+                                .frame(width: 120, height: 120)
+                            }
+                            .buttonStyle(PlainButtonStyle())
                         }
-                        .frame(width: 120, height: 120)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .tabItem {
-                        Label("Restaurant 1", systemImage: "square.fill")
-                    }
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image("restaurant2")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .cornerRadius(10)
-                                .padding(.horizontal)
-                            
-                            Text("Restaurant 2")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        .frame(width: 120, height: 120)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .tabItem {
-                        Label("Restaurant 2", systemImage: "square.fill")
                     }
                 }
-                .tabViewStyle(PageTabViewStyle())
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 .frame(height: 240)
                 .padding(.horizontal)
-
+                
                 Spacer()
             }
         }
+        
+        Spacer()
+
         .onAppear {
             checkLocationAuthorization()
         }
