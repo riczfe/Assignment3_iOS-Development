@@ -1,6 +1,38 @@
 import SwiftUI
 import CoreLocation
-import Foundation
+
+struct Restaurant: Identifiable, Codable {
+    let id: Int
+    let name: String
+    let description: String
+    let rating: Double
+    let imageName: String
+}
+
+struct RestaurantDetailScreen: View {
+    let restaurant: Restaurant
+
+    var body: some View {
+        VStack {
+            Text("Restaurant Detail")
+                .font(.largeTitle)
+                .padding()
+            
+            Text("Name: \(restaurant.name)")
+                .font(.title)
+                .padding()
+            
+            Text("Description: \(restaurant.description)")
+                .font(.body)
+                .padding()
+            
+            Text("Rating: \(restaurant.rating)")
+                .font(.body)
+                .padding()
+        }
+    }
+}
+
 
 class LocationDelegate: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var currentLocation: CLLocationCoordinate2D?
@@ -48,8 +80,9 @@ struct HomeScreen: View {
     @State private var searchText = ""
     @AppStorage("darkModeEnabled") private var darkModeEnabled = false
     
+    @State private var restaurants: [Restaurant] = []
+    
     var body: some View {
-        
         NavigationView {
             VStack {
                 HStack {
@@ -74,7 +107,6 @@ struct HomeScreen: View {
                 .padding()
                 .foregroundColor(Color.primary)
                 
-                // Search bar added to the navigation bar
                 SearchBar(text: $searchText)
                 
                 HStack {
@@ -216,23 +248,22 @@ struct HomeScreen: View {
                 Text("Check out our latest promotions!")
                     .font(.headline)
                 
-                // Replace TabView with ScrollView and LazyHGrid
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHGrid(rows: [GridItem(.fixed(150))]) {
-                        ForEach(0..<2) { index in
-                            Button(action: {}) {
+                    LazyHStack(spacing: 20) {
+                        ForEach(restaurants) { restaurant in
+                            NavigationLink(destination: RestaurantDetailScreen(restaurant: restaurant)) {
                                 VStack {
-                                    Image("restaurant\(index + 1)")
+                                    Image(restaurant.imageName)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .cornerRadius(10)
                                         .padding(.horizontal)
                                     
-                                    Text("Restaurant \(index + 1)")
+                                    Text(restaurant.name)
                                         .font(.caption)
                                         .foregroundColor(.gray)
                                 }
-                                .frame(width: 120, height: 120)
+                                .frame(width: 200, height: 200) // Adjust the frame size as needed
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -240,15 +271,14 @@ struct HomeScreen: View {
                 }
                 .frame(height: 240)
                 .padding(.horizontal)
+
                 
                 Spacer()
             }
         }
-        
-        Spacer()
-
         .onAppear {
             checkLocationAuthorization()
+            loadRestaurantData()
         }
         .background(
             GeometryReader { geometry in
@@ -275,10 +305,20 @@ struct HomeScreen: View {
             locationManager.startUpdatingLocation()
         }
     }
+    
+    private func loadRestaurantData() {
+        if let path = Bundle.main.path(forResource: "restaurants", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path))
+                let decodedRestaurants = try JSONDecoder().decode([Restaurant].self, from: data)
+                restaurants = decodedRestaurants
+            } catch {
+                print("Error loading restaurant data: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
-
-//SEARCH BARR
 struct SearchBar: View {
     @Binding var text: String
 
