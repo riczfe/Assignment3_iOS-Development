@@ -269,9 +269,9 @@ struct HomeScreen: View {
                         }
                     }
                 }
-                .frame(height: 240)
+                .frame(height: 200)
                 .padding(.horizontal)
-
+                .padding(.bottom, 40)
                 
                 Spacer()
             }
