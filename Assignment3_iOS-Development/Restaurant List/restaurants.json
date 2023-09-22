@@ -1,30 +1,58 @@
 [
     {
         "id": 1,
-        "name": "Restaurant 1",
+        "name": "Gogi House",
         "description": "Description for Restaurant 1",
         "rating": 4.5,
         "imageName": "restaurant1"
     },
     {
         "id": 2,
-        "name": "Restaurant 2",
+        "name": "The Coffee Bean",
         "description": "Description for Restaurant 2",
         "rating": 4.2,
         "imageName": "restaurant2"
     },
     {
         "id": 3,
-        "name": "Restaurant 3",
+        "name": "Bah Ku Teh",
         "description": "Description for Restaurant 3",
         "rating": 4.8,
         "imageName": "restaurant3"
     },
     {
         "id": 4,
-        "name": "Restaurant 4",
+        "name": "Highland Coffee",
         "description": "Description for Restaurant 4",
         "rating": 4.0,
         "imageName": "restaurant4"
+    },
+    {
+        "id": 5,
+        "name": "Starbucks",
+        "description": "Description for Restaurant 5",
+        "rating": 4.3,
+        "imageName": "restaurant5"
+    },
+    {
+        "id": 6,
+        "name": "KFC",
+        "description": "Description for Restaurant 6",
+        "rating": 3.9,
+        "imageName": "restaurant6"
+    },
+    {
+        "id": 7,
+        "name": "Woolworths",
+        "description": "Description for Restaurant 7",
+        "rating": 4.7,
+        "imageName": "restaurant7"
+    },
+    {
+        "id": 8,
+        "name": "McDonald’s",
+        "description": "Description for Restaurant 8",
+        "rating": 4.5,
+        "imageName": "restaurant8"
     }
 ]

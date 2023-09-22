@@ -246,7 +246,7 @@ struct HomeScreen: View {
                 .padding(.horizontal)
                 .padding(.bottom, 10)
                 
-                Text("TOP RATING CAFE AND RESTAURANTS")
+                Text("TOP RATING CAFE(s) & RESTAURANTS")
                     .font(.title2)
                     .bold()
                     
@@ -263,11 +263,16 @@ struct HomeScreen: View {
                                         .padding(.horizontal)
                                     
                                     Text(restaurant.name)
+//                                        .font(.caption)
+//                                        .foregroundColor(.gray)
+                                    
+                                    Text(restaurant.description)
                                         .font(.caption)
                                         .foregroundColor(.gray)
                                     
-                                    Text(restaurant.description)
-                                        
+                                    Text(String(format: "Rating: %.1f", restaurant.rating))
+                                                  .font(.caption2)
+                                                  .foregroundColor(.gray)
                                 }
                                 .frame(width: 200, height: 200) // Adjust the frame size as needed
                             }
