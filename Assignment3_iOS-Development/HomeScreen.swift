@@ -13,27 +13,54 @@ struct RestaurantDetailScreen: View {
     let restaurant: Restaurant
 
     var body: some View {
-        VStack {
-            Text("Restaurant Detail")
-                .font(.largeTitle)
-                .padding()
-            
-            
-            
-            Text("Name: \(restaurant.name)")
-                .font(.title)
-                .padding()
-            
-            Text("Description: \(restaurant.description)")
-                .font(.body)
-                .padding()
-            
-            Text("Rating: \(restaurant.rating)")
-                .font(.body)
-                .padding()
+        ZStack(alignment: .top) {
+            // Background image taking up to 35% of the screen
+            Image(restaurant.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxHeight: UIScreen.main.bounds.height * 0.35)
+                .clipped()
+
+            VStack(alignment: .center, spacing: 16) {
+                // Circular restaurant logo
+                Image(restaurant.imageName)
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
+
+                Text(restaurant.name)
+                    .font(.title)
+                    .foregroundColor(.black)
+
+                // Star ratings
+                HStack(spacing: 4) {
+                    ForEach(1...Int(restaurant.rating), id: \.self) { _ in
+                        Image(systemName: "star.fill")
+                            .font(.system(size: 18))
+                            .foregroundColor(.yellow)
+                    }
+                    ForEach(1..<6 - Int(restaurant.rating), id: \.self) { _ in
+                        Image(systemName: "star")
+                            .font(.system(size: 18))
+                            .foregroundColor(.yellow)
+                    }
+                }
+
+                // Restaurant description
+                Text(restaurant.description)
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+                    .padding()
+
+                Spacer()
+            }
+            .padding(.top, UIScreen.main.bounds.height * 0.25)
         }
+        .navigationBarTitle("Restaurant Detail", displayMode: .inline)
     }
 }
+
 
 
 class LocationDelegate: NSObject, CLLocationManagerDelegate, ObservableObject {
