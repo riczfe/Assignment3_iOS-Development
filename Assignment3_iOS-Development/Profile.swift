@@ -60,6 +60,14 @@ struct Profile: View {
    
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
-        Profile()
+        let viewModel = AuthViewModel() // Create an instance of your AuthViewModel
+
+        // Set the current user in the view model for the preview
+        viewModel.currentUser = User(id: "123", email: "test@example.com")
+
+        // Inject the view model into the Profile view using .environmentObject
+        return Profile()
+            .environmentObject(viewModel)
     }
 }
+
