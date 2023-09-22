@@ -244,9 +244,12 @@ struct HomeScreen: View {
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 .frame(height: 240)
                 .padding(.horizontal)
+                .padding(.bottom, 10)
                 
-                Text("Check out our latest promotions!")
-                    .font(.headline)
+                Text("TOP RATING CAFE AND RESTAURANTS")
+                    .font(.title2)
+                    .bold()
+                    
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 20) {
@@ -262,6 +265,9 @@ struct HomeScreen: View {
                                     Text(restaurant.name)
                                         .font(.caption)
                                         .foregroundColor(.gray)
+                                    
+                                    Text(restaurant.description)
+                                        
                                 }
                                 .frame(width: 200, height: 200) // Adjust the frame size as needed
                             }
