@@ -136,10 +136,10 @@
 			children = (
 				7C92A26E2ABC4E4F00B20865 /* restaurants.json */,
 				7CB9DA1B2ABD1E6000049C4C /* Offer.swift */,
+				7CB9DA232ABD1EE200049C4C /* Trending.swift */,
 				7CB9DA1D2ABD1E6E00049C4C /* Grocery.swift */,
 				7CB9DA1F2ABD1E7C00049C4C /* Convenience.swift */,
 				7CB9DA212ABD1ED100049C4C /* Alcohol.swift */,
-				7CB9DA232ABD1EE200049C4C /* Trending.swift */,
 				7CB9DA252ABD1EF500049C4C /* Burger.swift */,
 				7CB9DA272ABD1F0D00049C4C /* FastFood.swift */,
 				7CB9DA292ABD1F1700049C4C /* Coffee.swift */,

@@ -54,5 +54,173 @@
         "description": "Description for Restaurant 8",
         "rating": 4.5,
         "imageName": "restaurant8"
-    }
+    },
+    {
+            "id": 9,
+            "name": "Melbourne Coffee Co.",
+            "description": "Popular coffee shop in Melbourne",
+            "rating": 4.6,
+            "imageName": "melbourne_coffee"
+        },
+        {
+            "id": 10,
+            "name": "Sydney Brews",
+            "description": "Artisanal coffee in Sydney's vibrant scene",
+            "rating": 4.7,
+            "imageName": "sydney_brews"
+        },
+        {
+            "id": 11,
+            "name": "Brisbane Beans",
+            "description": "Best coffee in Brisbane",
+            "rating": 4.4,
+            "imageName": "brisbane_beans"
+        },
+        {
+            "id": 12,
+            "name": "Perth Roastery",
+            "description": "Specialty coffee roastery in Perth",
+            "rating": 4.8,
+            "imageName": "perth_roastery"
+        },
+        {
+            "id": 13,
+            "name": "Adelaide Pub & Grill",
+            "description": "Cosy pub with an excellent selection of drinks",
+            "rating": 4.2,
+            "imageName": "adelaide_pub"
+        },
+        {
+            "id": 14,
+            "name": "Sydney Sips",
+            "description": "A wide range of cocktails and spirits in Sydney",
+            "rating": 4.6,
+            "imageName": "sydney_sips"
+        },
+        {
+            "id": 15,
+            "name": "Brisbane Brewery",
+            "description": "Craft beers and delicious food in Brisbane",
+            "rating": 4.5,
+            "imageName": "brisbane_brewery"
+        },
+        {
+            "id": 16,
+            "name": "Perth Pours",
+            "description": "Barista-crafted cocktails and drinks in Perth",
+            "rating": 4.7,
+            "imageName": "perth_pours"
+        },
+        {
+            "id": 17,
+            "name": "Lotte Mart",
+            "description": "Korean hypermarket offering a wide range of products",
+            "rating": 4.2,
+            "imageName": "lotte_mart"
+        },
+        {
+            "id": 18,
+            "name": "AEON Mall",
+            "description": "Shopping mall with a large supermarket",
+            "rating": 4.4,
+            "imageName": "aeon_mall"
+        },
+        {
+            "id": 19,
+            "name": "Guardian",
+            "description": "Pharmacy and health products store",
+            "rating": 4.3,
+            "imageName": "guardian"
+        },
+        {
+            "id": 20,
+            "name": "VinMart Supermarket",
+            "description": "Supermarket chain with fresh produce and groceries",
+            "rating": 4.5,
+            "imageName": "vinmart_supermarket"
+        },
+        {
+            "id": 21,
+            "name": "B's Mart",
+            "description": "Convenience store with a focus on snacks",
+            "rating": 4.0,
+            "imageName": "bs_mart"
+        },
+        {
+            "id": 22,
+            "name": "Phuong Ha Store",
+            "description": "Local grocery store with a variety of products",
+            "rating": 4.1,
+            "imageName": "phuong_ha_store"
+        },
+        {
+            "id": 23,
+            "name": "MiniMart",
+            "description": "Convenient store for daily essentials",
+            "rating": 4.2,
+            "imageName": "mini_mart"
+        },
+        {
+            "id": 24,
+            "name": "Co.op Food",
+            "description": "Supermarket chain offering quality food products",
+            "rating": 4.4,
+            "imageName": "coop_food"
+        },
+        {
+                "id": 25,
+                "name": "Burger King",
+                "description": "Global chain known for its flame-grilled burgers",
+                "rating": 4.2,
+                "imageName": "burger_king"
+            },
+            {
+                "id": 26,
+                "name": "Pizza Hut",
+                "description": "Pizza and pasta restaurant chain",
+                "rating": 4.1,
+                "imageName": "pizza_hut"
+            },
+            {
+                "id": 27,
+                "name": "KFC Vietnam",
+                "description": "Famous for its fried chicken and sides",
+                "rating": 4.3,
+                "imageName": "kfc"
+            },
+            {
+                "id": 28,
+                "name": "Lotteria",
+                "description": "Korean fast-food restaurant chain",
+                "rating": 4.0,
+                "imageName": "lotteria"
+            },
+            {
+                "id": 29,
+                "name": "McDonald's Vietnam",
+                "description": "Iconic fast-food chain serving burgers and fries",
+                "rating": 4.5,
+                "imageName": "mcdonalds"
+            },
+            {
+                "id": 30,
+                "name": "Subway",
+                "description": "International sandwich restaurant chain",
+                "rating": 4.2,
+                "imageName": "subway"
+            },
+            {
+                "id": 31,
+                "name": "Popeyes Louisiana Kitchen",
+                "description": "Famous for its fried chicken and Cajun cuisine",
+                "rating": 4.4,
+                "imageName": "popeyes"
+            },
+            {
+                "id": 32,
+                "name": "Banh Mi Huynh Hoa",
+                "description": "Renowned for its Vietnamese sandwiches",
+                "rating": 4.5,
+                "imageName": "banh_mi_huynh_hoa"
+            }
 ]

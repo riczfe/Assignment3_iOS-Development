@@ -24,7 +24,7 @@ struct Coffee: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 20) {
-                        ForEach(restaurants.filter { [1, 3, 4].contains($0.id) }) { restaurant in
+                        ForEach(restaurants.filter { [9, 10, 11,12].contains($0.id) }) { restaurant in
                             NavigationLink(destination: RestaurantDetailScreen(restaurant: restaurant)) {
                                 VStack {
                                     Image(restaurant.imageName)

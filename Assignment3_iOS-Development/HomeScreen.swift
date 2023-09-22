@@ -18,6 +18,8 @@ struct RestaurantDetailScreen: View {
                 .font(.largeTitle)
                 .padding()
             
+            
+            
             Text("Name: \(restaurant.name)")
                 .font(.title)
                 .padding()
@@ -263,7 +265,7 @@ struct HomeScreen: View {
                 .padding(.horizontal)
                 .padding(.bottom, 10)
                 
-                Text("TOP RATING CAFE(s) & RESTAURANTS")
+                Text("TRENDING CAFE(s) & RESTAURANTS")
                     .font(.title2)
                     .bold()
                     
