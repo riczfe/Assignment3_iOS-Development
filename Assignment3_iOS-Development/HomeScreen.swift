@@ -110,57 +110,65 @@ struct HomeScreen: View {
                 SearchBar(text: $searchText)
                 
                 HStack {
-                    VStack {
-                        Image("offer")
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.horizontal)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                        
-                        Text("Offer")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+                    NavigationLink(destination: Offer()){
+                        VStack {
+                            Image("offer")
+                                .resizable()
+                                .frame(width: 45, height: 45)
+                                .padding(.horizontal)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                            
+                            Text("Offer")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
                     }
                     
-                    VStack {
-                        Image("grocery")
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.horizontal)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                        
-                        Text("Grocery")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
+                        NavigationLink(destination: Grocery()){
+                            VStack {
+                                Image("grocery")
+                                    .resizable()
+                                    .frame(width: 45, height: 45)
+                                    .padding(.horizontal)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                                
+                                Text("Grocery")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                        }
                     
-                    VStack {
-                        Image("convenience")
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.horizontal)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                        
-                        Text("Convenience")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
+                            NavigationLink(destination: Convenience()){
+                                VStack {
+                                    Image("convenience")
+                                        .resizable()
+                                        .frame(width: 45, height: 45)
+                                        .padding(.horizontal)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                                    
+                                    Text("Convenience")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                }
+                            }
                     
-                    VStack {
-                        Image("alcohol")
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.horizontal)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                        
-                        Text("Alcohol")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
+                                NavigationLink(destination: Alcohol()){
+                                    VStack {
+                                        Image("alcohol")
+                                            .resizable()
+                                            .frame(width: 45, height: 45)
+                                            .padding(.horizontal)
+                                            .clipShape(Circle())
+                                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                                        
+                                        Text("Alcohol")
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                    }
+                                }
                 }
                 .padding(.horizontal)
                 
@@ -168,57 +176,66 @@ struct HomeScreen: View {
                     .padding(.horizontal)
                 
                 HStack {
-                    VStack {
-                        Image("trending")
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.horizontal)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                        
-                        Text("Trending")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+                    NavigationLink(destination: Trending()) {
+                        VStack {
+                            Image("trending")
+                                .resizable()
+                                .frame(width: 45, height: 45)
+                                .padding(.horizontal)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                            
+                            Text("Trending")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+
                     }
-                    
-                    VStack {
-                        Image("burgers")
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.horizontal)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                        
-                        Text("Burgers")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+                    NavigationLink(destination: Burger()){
+                        VStack {
+                            Image("burgers")
+                                .resizable()
+                                .frame(width: 45, height: 45)
+                                .padding(.horizontal)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                            
+                            Text("Burgers")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
                     }
-                    
-                    VStack {
-                        Image("fastfood")
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.horizontal)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                        
-                        Text("Fast Food")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+
+                    NavigationLink(destination: FastFood()){
+                        VStack {
+                            Image("fastfood")
+                                .resizable()
+                                .frame(width: 45, height: 45)
+                                .padding(.horizontal)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                            
+                            Text("Fast Food")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
                     }
-                    
-                    VStack {
-                        Image("coffee")
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.horizontal)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                        
-                        Text("Coffee")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+
+                    NavigationLink(destination: Coffee()){
+                        VStack {
+                            Image("coffee")
+                                .resizable()
+                                .frame(width: 45, height: 45)
+                                .padding(.horizontal)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                            
+                            Text("Coffee")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
                     }
+
                 }
                 .padding(.horizontal)
                 .padding()

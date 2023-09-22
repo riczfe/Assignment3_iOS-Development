@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
+import Foundation
+
+struct Alcohol: View {
+        
+    var body: some View {
+        Text("Alcohol")
+    }
+}

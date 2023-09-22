@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
+import Foundation
+
+struct Trending: View {
+        
+    var body: some View {
+        Text("Trending")
+    }
+}
