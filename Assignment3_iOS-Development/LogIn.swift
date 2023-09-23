@@ -52,8 +52,6 @@ struct LogIn: View {
 
                         }
                         .background(Color(.systemCyan))
-                        .disabled(!formIsValid)
-                        .opacity(formIsValid ? 1.0 : 0.5)
                         .cornerRadius(10)
                         .padding(.top, 24)
                         
@@ -75,16 +73,6 @@ struct LogIn: View {
                 }
             }
         }
-    }
-}
-
-// AuthenticationFormProtocol, put condition 
-extension LogIn: AuthenticationFormProtocol {
-    var formIsValid: Bool {
-        return !email.isEmpty
-        && email.contains("@")
-        && !password.isEmpty
-        && password.count > 6
     }
 }
 

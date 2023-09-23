@@ -23,16 +23,12 @@ struct Registration: View {
                 
                 InputView(text: $password, title: "Password", textField: "******", secureField: true)
                 
-                ZStack(alignment: .trailing) {
-                    InputView(text: $confirmPassword, title: "Confirm Password", textField: "******", secureField: true)
-                    
-                    //adding checkup icon (if needed)
-                }
+                InputView(text: $confirmPassword, title: "Confirm Password", textField: "******", secureField: true)
             }
             .padding(.horizontal)
             .padding(.top, 12)
             
-            // Sign Up Button
+            
             Button {
                 Task{
                     try await viewModel.createUser(withEmail: email,password: password)
@@ -47,8 +43,6 @@ struct Registration: View {
 
             }
             .background(Color(.systemCyan))
-            .disabled(!formIsValid)
-            .opacity(formIsValid ? 1.0 : 0.5)
             .cornerRadius(10)
             
             Spacer()
@@ -57,24 +51,13 @@ struct Registration: View {
                 dismiss()
             } label: {
                 HStack {
-                    Text("Back to Sign In!!")
+                    Text("Sign In!!")
                         .fontWeight(.bold)
                 }
                 .font(.system(size: 15))
             }
 
         }
-    }
-}
-
-extension Registration: AuthenticationFormProtocol {
-    var formIsValid: Bool {
-        return !email.isEmpty
-        && email.contains("@")
-        && !password.isEmpty
-        && password.count > 6
-        && !confirmPassword.isEmpty
-        && confirmPassword == password
     }
 }
 
