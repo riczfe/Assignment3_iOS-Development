@@ -24,6 +24,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        // Create an instance of AuthViewModel
+        let authViewModel = AuthViewModel()
+
+        return ContentView()
+            .environmentObject(authViewModel) // Inject the AuthViewModel here
     }
 }
