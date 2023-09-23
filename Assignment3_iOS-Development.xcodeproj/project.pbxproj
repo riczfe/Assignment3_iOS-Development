@@ -49,7 +49,7 @@
 		0E6E849F2ABEAADE00A37D38 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		0E6E84A12ABEAFE000A37D38 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		0EF43D142AB952A800968586 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7C1F638B2AA885A100A96D7D /* Assignment3_iOS-Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Assignment3_iOS-Development.app"; path = "/Users/erictran/Desktop/Assignment3_iOS-Development/build/Debug-iphoneos/Assignment3_iOS-Development.app"; sourceTree = "<absolute>"; };
+		7C1C8F262ABF437200D1A067 /* Assignment3_iOS-Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Assignment3_iOS-Development.app"; path = "/Users/erictran/Desktop/Assignment3_iOS-Development/build/Debug-iphoneos/Assignment3_iOS-Development.app"; sourceTree = "<absolute>"; };
 		7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3_iOS_DevelopmentApp.swift; sourceTree = "<group>"; };
 		7C1F63922AA885A200A96D7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C1F63952AA885A200A96D7D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 				0EF43D252AB953C800968586 /* FirebaseStorageCombine-Community */,
 			);
 			productName = "Assignment3_iOS-Development";
-			productReference = 7C1F638B2AA885A100A96D7D /* Assignment3_iOS-Development.app */;
+			productReference = 7C1C8F262ABF437200D1A067 /* Assignment3_iOS-Development.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
