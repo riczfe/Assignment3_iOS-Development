@@ -1,19 +1,13 @@
-//
-//  ContentView.swift
-//  Assignment3_iOS-Development
-//
-//  Created by Nguyễn Tuân on 20/09/2023.
-//
+import SwiftUI
 
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
-    
-   
+    @EnvironmentObject var authViewModel: AuthViewModel
+
     var body: some View {
         Group {
-            if viewModel.userSession != nil{
+            if authViewModel.isAuthenticated {
                 Profile()
             } else {
                 LogIn()
@@ -21,6 +15,9 @@ struct ContentView: View {
         }
     }
 }
+
+// The rest of your views and components (LogIn, Profile, etc.) remain the same as your original code.
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
