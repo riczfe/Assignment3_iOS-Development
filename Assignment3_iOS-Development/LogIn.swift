@@ -11,7 +11,7 @@ import Firebase
 struct LogIn: View {
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel = AuthViewModel()
+    @EnvironmentObject var viewModel: AuthViewModel
     @State var isLoginMode = false
     @State var email = ""
     @State var password = ""
@@ -19,99 +19,61 @@ struct LogIn: View {
     @State var signUpSuccess = false
     @State private var navigationTo = false
     
-
+    
     var body: some View {
         NavigationView {
             NavigationStack{
                 ScrollView {
-                    VStack(spacing: 20) {
+                    VStack {
                         
                         
-                        Picker(selection: $isLoginMode, label: Text("Picker here")) {
-                            Text("Login").tag(true)
-                            Text("Create Account").tag(false)
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .padding()
-                        
-                        
-                        Group {
-                            TextField("Email", text: $email)
-                                .keyboardType(.emailAddress)
+                        VStack(spacing: 14){
+                            InputView(text: $email, title: "Email Address", textField: "name@example.com")
                                 .autocapitalization(.none)
-                                .foregroundColor(.primary) // Set text color
                             
-                            SecureField("Password", text: $password)
-                                .foregroundColor(.primary) // Set text color
+                            InputView(text: $password, title: "Password", textField: "******", secureField: true)
                         }
-                        .padding(12)
-                        .background(Color.white)
+                        .padding(.horizontal)
+                        .padding(.top, 12)
                         
-                        
-                        
-                       
-                            Button {
-                                Task{
-                                    try await viewModel.signIn(withEmail: email, password: password)
-                                }
-                            }
-                        label: {
-                            HStack {
-                                Spacer()
-                                Text(isLoginMode ? "Login" : "Create Account")
-                                    .foregroundColor(.white)
-                                    .padding(.vertical, 10)
-                                    .font(.system(size: 14, weight: .semibold))
-                                Spacer()
-                                
-                            }
-                            .background(Color.blue)
-                        }
-                        
-                        
-                        Spacer()
-                        
-                        
-                                
-                        
-                        if signUpSuccess {
-                            Text("Sign Up Successful")
-                                .foregroundColor(.pink)
-                        } else {
-                            Text("Not Successful!!")
-                        }
-        
-                    
-                        
-                        
-                        Spacer()
-                        
+                        //Button SignIn
                         
                         Button {
-                            dismiss()
+                            Task {
+                                try await viewModel.signIn(withEmail: email, password: password)
+                            }
                         } label: {
-                            Text("Return")
+                            HStack {
+                                Text("Sign in")
+                                    .fontWeight(.bold)
+                            }
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width - 32, height: 48)
+
                         }
+                        .background(Color(.systemCyan))
+                        .cornerRadius(10)
+                        .padding(.top, 24)
+                        
+                        
+                        Spacer()
+                        
+                        NavigationLink {
+                            Registration()
+                                .navigationBarBackButtonHidden(true)
+                        } label: {
+                            HStack {
+                                Text("Sign Up!!")
+                                    .fontWeight(.bold)
+                            }
+                            .font(.system(size: 15))
+                        }
+
                     }
-                    .padding()
-                    
                 }
-                
-                .navigationTitle(isLoginMode ? "Login" : "Create Account")
-                .background(Color(.init(white: 0, alpha: 0.05)))
-                .ignoresSafeArea(.keyboard)
             }
         }
     }
-
-    /*private func handleAction() {
-        if isLoginMode {
-            print("Log into Firebase")
-        } else {
-            print("Register New Account")
-        }
-    }*/
-
 }
 
 struct LogIn_Previews: PreviewProvider {
