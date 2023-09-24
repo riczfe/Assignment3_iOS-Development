@@ -52,6 +52,7 @@
 		7C1F638E2AA885A100A96D7D /* Assignment3_iOS_DevelopmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3_iOS_DevelopmentApp.swift; sourceTree = "<group>"; };
 		7C1F63922AA885A200A96D7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C1F63952AA885A200A96D7D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7C5DDD882ABFEA27001D8CB5 /* Assignment3_iOS-Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Assignment3_iOS-Development.app"; path = "/Users/erictran/Desktop/Assignment3_iOS-Development/build/Debug-iphoneos/Assignment3_iOS-Development.app"; sourceTree = "<absolute>"; };
 		7C771A5D2ABEE1330067FE7E /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthViewModel.swift; path = Model/AuthViewModel.swift; sourceTree = "<group>"; };
 		7C771A5E2ABEE1330067FE7E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 		7C92A26E2ABC4E4F00B20865 /* restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		7CB9DA252ABD1EF500049C4C /* Burger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Burger.swift; sourceTree = "<group>"; };
 		7CB9DA272ABD1F0D00049C4C /* FastFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFood.swift; sourceTree = "<group>"; };
 		7CB9DA292ABD1F1700049C4C /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
-		7CBBC72D2ABF46C300AD334C /* Assignment3_iOS-Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Assignment3_iOS-Development.app"; path = "/Users/erictran/Desktop/Assignment3_iOS-Development/build/Debug-iphoneos/Assignment3_iOS-Development.app"; sourceTree = "<absolute>"; };
 		7CFD0F1C2AB3F4370018CCD2 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		7CFD0F1E2AB3F4500018CCD2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		803DB6862AB7F60C00EE4F22 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 				0EF43D252AB953C800968586 /* FirebaseStorageCombine-Community */,
 			);
 			productName = "Assignment3_iOS-Development";
-			productReference = 7CBBC72D2ABF46C300AD334C /* Assignment3_iOS-Development.app */;
+			productReference = 7C5DDD882ABFEA27001D8CB5 /* Assignment3_iOS-Development.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
