@@ -10,6 +10,9 @@ import Foundation
 struct User: Identifiable, Codable {
     let id: String
     let email: String
+    let fullName: String
+    let phoneNumber: String
+    let age: String
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
@@ -22,5 +25,5 @@ struct User: Identifiable, Codable {
 }
 
 extension User {
-    static var Mock_User = User(id: NSUUID().uuidString, email: "tester1@gmail.com")
+    static var Mock_User = User(id: NSUUID().uuidString, email: "tester1@gmail.com", fullName: "Micheal", phoneNumber: "+8412345678", age: "18")
 }

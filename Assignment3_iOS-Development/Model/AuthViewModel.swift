@@ -11,7 +11,7 @@ class AuthViewModel: ObservableObject {
     init() {
         Auth.auth().addStateDidChangeListener { auth, user in
             if let user = user {
-                self.user = User(id: user.uid, email: user.email ?? "")
+                self.user = User(id: user.uid, email: user.email ?? "", fullName: "", phoneNumber: "", age: "")
                 self.isAuthenticated = true
             } else {
                 self.user = nil
@@ -26,7 +26,7 @@ class AuthViewModel: ObservableObject {
     }
 
     // Create a user with email and password
-    func createUser(withEmail email: String, password: String) async throws {
+    func createUser(withEmail email: String, password: String, fullName: String, phoneNumber: String, age: String) async throws {
         try await Auth.auth().createUser(withEmail: email, password: password)
     }
 

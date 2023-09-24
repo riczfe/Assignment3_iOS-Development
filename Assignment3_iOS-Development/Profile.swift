@@ -23,8 +23,20 @@ struct Profile: View {
                         VStack(alignment: .leading, spacing: 40) {
                             Text(user.email)
                                 .font(.subheadline)
-                                .fontWeight(.semibold)
+                                .fontWeight(.bold)
                                 .padding(.top, 4)
+                            
+                            Text(user.fullName)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            
+                            Text(user.phoneNumber)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            
+                            Text(user.age)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
                         }
                     }
                 }
@@ -86,7 +98,19 @@ struct Profile: View {
             }
 
             if let document = document, document.exists {
-                if let userName = document.data()?["name"] as? String {
+                if let userName = document.data()?["name"] as? String,
+                   let fullName = document.data()?["fullName"] as? String,
+                   let age = document.data()?["age"] as? String,
+                   let phoneNumber = document.data()?["phoneNumber"] as? String {
+                    let updatedUser = User(
+                               id: viewModel.user?.id ?? "",
+                               email: viewModel.user?.email ?? "",
+                               fullName: fullName,
+                               phoneNumber: phoneNumber,
+                               age: age
+                           )
+                           
+                    viewModel.user = updatedUser
                     self.userName = userName
                 }
             }

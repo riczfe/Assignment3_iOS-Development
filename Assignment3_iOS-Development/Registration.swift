@@ -9,6 +9,9 @@ import SwiftUI
 
 struct Registration: View {
     @State var email = ""
+    @State var fullName = ""
+    @State var phoneNumber = ""
+    @State var age = ""
     @State var password = ""
     @State var confirmPassword = ""
     @Environment(\.dismiss) var dismiss
@@ -21,6 +24,12 @@ struct Registration: View {
                 InputView(text: $email, title: "Email Address", textField: "name@example.com")
                     .autocapitalization(.none)
                 
+                InputView(text: $fullName, title: "Full Name", textField: "Enter your full name")
+                
+                InputView(text: $age, title: "Age", textField: "Enter your age")
+                
+                InputView(text: $phoneNumber, title: "Phone Number", textField: "+8412345678")
+                
                 InputView(text: $password, title: "Password", textField: "******", secureField: true)
                 
                 InputView(text: $confirmPassword, title: "Confirm Password", textField: "******", secureField: true)
@@ -31,7 +40,7 @@ struct Registration: View {
             
             Button {
                 Task{
-                    try await viewModel.createUser(withEmail: email,password: password)
+                    try await viewModel.createUser(withEmail: email, password: password, fullName: fullName, phoneNumber: phoneNumber, age: age)
                 }
             } label: {
                 HStack {

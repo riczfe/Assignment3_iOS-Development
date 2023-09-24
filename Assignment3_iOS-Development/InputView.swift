@@ -16,7 +16,7 @@ struct InputView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12){
             Text(title)
-                .foregroundColor(Color(.systemGray2))
+                .foregroundColor(Color(.systemGray))
                 .fontWeight(.semibold)
             if secureField {
                 SecureField(textField, text: $text)
