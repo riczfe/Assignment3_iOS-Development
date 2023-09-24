@@ -127,7 +127,7 @@ struct HomeScreen: View {
                         }
                         .foregroundColor(darkModeEnabled ? .yellow : .blue)
                     
-                    NavigationLink(destination: LogIn()) {
+                    NavigationLink(destination: Profile()) {
                         Image(systemName: "person.circle")
                             .font(.title)
                     }
