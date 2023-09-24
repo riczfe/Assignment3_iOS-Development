@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Restaurant 1",
+        "description": "A cozy Italian restaurant with a wide range of pasta and pizza options.",
+        "ratings": 4.5
+    },
+    {
+        "name": "Restaurant 2",
+        "description": "An elegant steakhouse known for its premium cuts of beef and fine dining experience.",
+        "ratings": 4.8
+    },
+    {
+        "name": "Restaurant 3",
+        "description": "A family-friendly diner serving classic American comfort food.",
+        "ratings": 4.2
+    },
+    {
+        "name": "Restaurant 4",
+        "description": "Authentic Mexican cuisine with a variety of tacos, burritos, and margaritas.",
+        "ratings": 4.7
+    },
+    {
+        "name": "Restaurant 5",
+        "description": "Sushi and sashimi specialist offering fresh seafood and Japanese cuisine.",
+        "ratings": 4.6
+    },
+    {
+        "name": "Restaurant 6",
+        "description": "Contemporary fusion cuisine with a creative menu and stylish ambiance.",
+        "ratings": 4.4
+    },
+    {
+        "name": "Restaurant 7",
+        "description": "A vegetarian and vegan-friendly cafe with organic, plant-based dishes.",
+        "ratings": 4.3
+    },
+    {
+        "name": "Restaurant 8",
+        "description": "Thai restaurant known for its spicy curries and flavorful dishes.",
+        "ratings": 4.5
+    },
+    {
+        "name": "Restaurant 9",
+        "description": "Satisfy your sweet tooth with a dessert-only eatery featuring decadent treats.",
+        "ratings": 4.9
+    },
+    {
+        "name": "Restaurant 10",
+        "description": "A seafood grill offering a variety of grilled fish and seafood platters.",
+        "ratings": 4.7
+    }
+]
