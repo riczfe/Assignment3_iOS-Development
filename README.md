@@ -39,7 +39,7 @@ Click the "Run" button in Xcode to build and install the app on your device.
 Logging In
 When you first open the app, you will be presented with the login screen. If you do not have an account, you can tap the "Sign Up!!" link to register a new account.
 
-Enter your email address and password.
+Enter your email address and password.(DEFAULT USERNAME:tester1@gmail.com || PASSWORD: 123456789)
 
 Tap the "Sign in" button to log in.
 
