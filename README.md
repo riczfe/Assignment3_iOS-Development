@@ -1,6 +1,6 @@
 
 # FlavourQuest App
-# FlavourQuest is an iOS application developed by a team of five members. This app allows users to discover and explore various restaurants, cafes, and food options in their vicinity. It also provides features for user authentication and personalized experiences. Below are instructions on how to use the FlavourQuest app effectively.
+FlavourQuest is an iOS application developed by a team of five members. This app allows users to discover and explore various restaurants, cafes, and food options in their vicinity. It also provides features for user authentication and personalized experiences. Below are instructions on how to use the FlavourQuest app effectively.
 
 # Team Members
 Kha Tran (Group Leader): Responsible for project management and overall coordination. Executing front and back end codes for developers. 
@@ -8,6 +8,9 @@ Binh Nguyen (UI Developer): In charge of designing the user interface and user e
 Minh Trinh (UI Developer): Collaborating with Binh Nguyen on UI development.
 Tuan Nguyen (Backend Developer): Responsible for implementing backend functionality.
 Minh Quang (UI Polishing Developer): Focusing on fine-tuning the user interface for a polished look.
+
+# FlavourQuest Demo
+https://www.youtube.com/watch?v=385nQN54VyM
 
 # Getting Started
 Before you start using FlavourQuest, make sure you have the following prerequisites:
